@@ -1,1 +1,25 @@
 use Illuminate\Database\Migrations\migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreatUserTable extends Migration { 
+  public function up ()
+{ 
+  Schema :: creat ('users', function (Blueprint $table) {
+      $table->id();
+      $table->string('name');
+      $table->string('email')->unique();
+      $table->timestap('email_verified_at')->null();
+      $table->string('password);
+      $table->rememberToken();
+      $table->timestamps();
+  });
+} 
+ public function down () {
+  Schema::dropIfExists ('users');
+  }
+}
+
+
+
+
